@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://i.imgur.com/m4gFoeN.jpg');
+    background-size: cover 100;
+    background-repeat: no-repeat;
+    background-color: #000;
+    color: #fff;
+  }
+  h2 {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(17, 17, 17, 0.7); /* Fundo semitransparente para melhorar legibilidade */
+    margin: 20px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #222;
+  }
+  tr:nth-child(even) {
+    background-color: rgba(17, 17, 17, 0.7); /* Fundo semitransparente para melhorar legibilidade */
+  }
+
+  /* Adicione um estilo para os treinos marcados */
+  .treino-marcado {
+    background-color: #4CAF50; /* Verde */
+    font-weight: bold;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  function displayDateTime() {
+    const currentDate = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+    const formattedDate = currentDate.toLocaleDateString('pt-BR', options);
+    document.getElementById('currentDateTime').textContent = formattedDate;
+  }
+
+  function marcarTreinos() {
+    const currentDate = new Date();
+    const dayOfWeek = currentDate.getDay(); // Obtém o dia da semana (0 a 6, onde 0 é Domingo)
+
+    // Seleciona todos os elementos de treino
+    const treinos = document.querySelectorAll('.treino');
+    for (let i = 0; i < treinos.length; i++) {
+      if (treinos[i].cellIndex === dayOfWeek) {
+        treinos[i].classList.add('treino-marcado');
+      }
+    }
+  }
+</script>
+</head>
+<body onload="displayDateTime(); marcarTreinos();">
+
+<h2>Programa de Treinamento</h2>
+<p id="currentDateTime" style="text-align: center;"></p>
+
+<table>
+  <tr>
+    <th>Segunda</th>
+    <th>Terça</th>
+    <th>Quarta</th>
+    <th>Quinta</th>
+    <th>Sexta</th>
+    <th>Sábado</th>
+    <th>Domingo</th>
+  </tr>
+  <tr>
+    <td class="treino">Peito e Tríceps</td>
+    <td class="treino">Pernas e Ombros</td>
+    <td class="treino">Costa e Bíceps</td>
+    <td class="treino">Braço</td>
+    <td class="treino">Pernas e Ombros</td>
+    <td class="treino">Peito e Tríceps</td>
+    <td class="treino">Descanso</td>
+  </tr>
+  <td>Supino<br>Crucifixo<br>Flexão Tríceps<br>Tríceps Corda<br>Abdominais</td>
+    <td>Agachamento<br>Leg Press<br>Lev. Terra<br>Desenv. Ombros<br>Elev. Lateral<br>Panturrilhas</td>
+    <td>Puxada Alta<br>Remada Curvada<br>Rem. Unilateral<br>Rosca Direta<br>Rosca Alternada<br>Rosca 21<br>Hiperextensões</td>
+    <td>Rosca Direta<br>Rosca Alternada<br>Rosca Martelo<br>Tríceps Testa<br>Bíceps Corda</td>
+    <td>Agachamento<br>Desenv. Ombros<br>Elev. Frontal<br>Elev. Lateral I.<br>Panturrilhas</td>
+    <td>Supino Inclinado<br>Crucifixo Incl.<br>Flexão Tríceps<br>Tríceps Coice<br>Abdominais</td>
+    <td></td>
+</table>
+
+</body>
+<!-- (Depois limpar aqui)
+    
+    <h2>Programa de Treinamento</h2>
+
+<p id="currentDateTime" style="text-align: center;"></p>
+
+<table>
+  <tr>
+    <th>Segunda</th>
+    <th>Terça</th>
+    <th>Quarta</th>
+    <th>Quinta</th>
+    <th>Sexta</th>
+    <th>Sábado</th>
+    <th>Domingo</th>
+  </tr>
+  <tr>
+    <td class="treino">Peito e Tríceps</td>
+    <td class="treino">Pernas e Ombros</td>
+    <td class="treino">Costa e Bíceps</td>
+    <td class="treino">Descanso</td>
+    <td class="treino">Pernas e Ombros</td>
+    <td class="treino">Peito e Tríceps</td>
+    <td class="treino">Descanso</td>
+  </tr>
+  <td>Supino<br>Crucifixo<br>Flexão Tríceps<br>Tríceps Corda<br>Abdominais</td>
+    <td>Agachamento<br>Leg Press<br>Lev. Terra<br>Desenv. Ombros<br>Elev. Lateral<br>Panturrilhas</td>
+    <td>Puxada Alta<br>Remada Curvada<br>Rem. Unilateral<br>Rosca Direta<br>Rosca Alternada<br>Rosca 21<br>Hiperextensões</td>
+    <td></td>
+    <td>Agachamento<br>Desenv. Ombros<br>Elev. Frontal<br>Elev. Lateral I.<br>Panturrilhas</td>
+    <td>Supino Inclinado<br>Crucifixo Incl.<br>Flexão Tríceps<br>Tríceps Coice<br>Abdominais</td>
+    <td></td>
+</html>
